@@ -12,15 +12,44 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 35.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextFormField(
+    return Form(
+      key: _formKey,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 35.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextFormField(
+              style: const TextStyle(fontSize: 20.0),
+              decoration: const InputDecoration(
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                  ),
+                ),
+                prefixIcon: Icon(
+                  Icons.alternate_email,
+                  color: Colors.grey,
+                ),
+                hintText: "Collector ID",
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 20.0),
+              ),
+
+              // The validator receives the text that the user has entered.
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, bottom: 50.0),
+              child: TextFormField(
+                style: const TextStyle(fontSize: 20.0),
                 decoration: const InputDecoration(
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
@@ -31,11 +60,11 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                   ),
                   prefixIcon: Icon(
-                    Icons.person,
+                    Icons.lock,
                     color: Colors.grey,
                   ),
-                  hintText: "Enter your Name",
-                  hintStyle: TextStyle(color: Colors.grey),
+                  hintText: "Password",
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 20.0),
                 ),
 
                 // The validator receives the text that the user has entered.
@@ -46,48 +75,27 @@ class _LoginFormState extends State<LoginForm> {
                   return null;
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
                     ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: Colors.grey,
-                    ),
-                    hintText: "Enter your Name",
-                    hintStyle: TextStyle(color: Colors.grey),
                   ),
-
-                  // The validator receives the text that the user has entered.
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xff27AE60)),
+                ),
+                onPressed: () => {},
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14.0),
+                  child: Text('Login', style: TextStyle(fontSize: 20.0)),
                 ),
               ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xff27AE60)),
-                  ),
-                  onPressed: () => {},
-                  child: Text('Login'),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
