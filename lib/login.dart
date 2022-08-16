@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
-
-import 'package:scrapcycle_collector/formWidgets/loginform.dart';
+import 'package:scrapcycle_collector/loginWidgets/loginform.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
