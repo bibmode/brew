@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:scrapcycle_collector/bottom_bar.dart';
-import 'package:scrapcycle_collector/collectionsWidgets/collection_card.dart';
+import 'package:scrapcycle_collector/collectedWidgets/collected_card.dart';
 
-class Collections extends StatelessWidget {
-  Collections({Key? key}) : super(key: key);
+class Collected extends StatelessWidget {
+  Collected({Key? key}) : super(key: key);
 
   List<String> names = [
     'Hayacinth Jimenez',
@@ -12,11 +12,11 @@ class Collections extends StatelessWidget {
     'Flocer Angelo Bustamante'
   ];
 
-  List<String> address = [
-    'Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd.',
-    'Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd.',
-    'Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd.',
-    'Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd. Blk1 Lot 35, Lumina Subd.',
+  List<double> weights = [
+    35.0,
+    35.0,
+    35.0,
+    35.0,
   ];
 
   List<String> images = [
@@ -30,7 +30,7 @@ class Collections extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Locations to Collect'),
+        title: const Text('Finished Locations'),
         centerTitle: true,
         backgroundColor: const Color(0xff27AE60),
       ),
@@ -56,11 +56,11 @@ class Collections extends StatelessWidget {
                     ),
                   ),
                   for (int index = 0; index < names.length; index++)
-                    CollectionCard(
-                      address: address[index],
+                    CollectedCard(
+                      scrapWeight: weights[index],
                       userName: names[index],
                       profilePhoto: images[index],
-                    ),
+                    )
                 ],
               ),
             ),
