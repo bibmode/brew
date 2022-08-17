@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scrapcycle_collector/collected.dart';
 import 'package:scrapcycle_collector/collections.dart';
 import 'package:scrapcycle_collector/login.dart';
+import 'package:scrapcycle_collector/scrapper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Collected(),
+      home: Scrapper(),
     );
   }
 }
