@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scrapcycle_collector/scrapperWidgets/item_card.dart';
 import 'package:scrapcycle_collector/scrapperWidgets/top_bar.dart';
 
 class Scrapper extends StatefulWidget {
@@ -131,6 +132,10 @@ class _ScrapperState extends State<Scrapper> {
                   ],
                 ),
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 18.0),
+              child: ItemCard(itemName: "Plastic bottles", price: 12.0),
             ),
           ],
         ),
